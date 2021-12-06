@@ -117,8 +117,8 @@ public class GoodBotTeleOp extends LinearOpMode {
 
             telemetry.addData("leftFront",  "%.2f", left);
             telemetry.addData("leftRear",  "%.2f", left);
-            telemetry.addData("rightFront", "%.2f", right);
-            telemetry.addData("rightRear", "%.2f", right);
+            telemetry.addData("rightFront", "%.2f", -right);
+            telemetry.addData("rightRear", "%.2f", -right);
             telemetry.addData("Duck Spinner", "%.2f", duckspinnerPower);
             telemetry.update();
 
