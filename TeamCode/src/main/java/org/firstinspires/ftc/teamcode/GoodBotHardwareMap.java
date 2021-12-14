@@ -59,6 +59,11 @@ public class GoodBotHardwareMap
     public DcMotor  rightFront  = null;
     public DcMotor  rightRear    = null;
     public DcMotor  duckSpinner   = null;
+    public Servo mainArm1  = null;
+    public Servo mainArm2  = null;
+    public Servo slidingArm1  = null;
+    public Servo slidingArm2  = null;
+    public Servo dumpBucket  = null;
 
 
     /* local OpMode members. */
@@ -81,6 +86,11 @@ public class GoodBotHardwareMap
         rightFront    = hwMap.get(DcMotor.class, "right_front");
         rightRear   = hwMap.get(DcMotor.class, "right_rear");
         duckSpinner = hwMap.get(DcMotor.class, "duck_spinner");
+        mainArm1  = hwMap.get(Servo.class, "main_arm_1");
+        mainArm2  = hwMap.get(Servo.class, "main_arm_2");
+        slidingArm1  = hwMap.get(Servo.class, "sliding_arm_1");
+        slidingArm2  = hwMap.get(Servo.class, "sliding_arm_2");
+        dumpBucket  = hwMap.get(Servo.class, "dump_bucket");
 
 
         //setting directions.
