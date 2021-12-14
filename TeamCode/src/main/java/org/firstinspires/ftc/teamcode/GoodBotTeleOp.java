@@ -60,10 +60,13 @@ public class GoodBotTeleOp extends LinearOpMode {
     private ElapsedTime runtime = new ElapsedTime();
     @Override
     public void runOpMode() {
-        double left;
-        double right;
+        double leftFrontPower;
+        double leftRearPower;
+        double rightFrontPower;
+        double rightRearPower;
         double drive;
         double turn;
+        double strafe;
         double max;
         double duckspinnerPower;
 
@@ -87,24 +90,28 @@ public class GoodBotTeleOp extends LinearOpMode {
             // This way it's also easy to just drive straight, or just turn.
             drive = -gamepad1.left_stick_y;
             turn  =  gamepad1.right_stick_x;
+            strafe = gamepad1.left_stick_x;
 
             // Combine drive and turn for blended motion.
-            left  = drive + turn;
-            right = drive - turn;
+             leftFrontPower = drive + turn + strafe;
+             leftRearPower  = drive + turn - strafe;
+             rightFrontPower  = drive - turn - strafe;
+             rightRearPower = drive - turn + strafe;
 
-            // Normalize the values so neither exceed +/- 1.0
-            max = Math.max(Math.abs(left), Math.abs(right));
-            if (max > 1.0)
-            {
-                left /= max;
-                right /= max;
-            }
+
+//            // Normalize the values so neither exceed +/- 1.0
+//            max = Math.max(Math.abs(left), Math.abs(right));
+//            if (max > 1.0)
+//            {
+//                left /= max;
+//                right /= max;
+//            }
 
             // Output the safe vales to the motor drives.
-            goat.leftFront.setPower(left);
-            goat.leftRear.setPower(left);
-            goat.rightFront.setPower(right);
-            goat.rightRear.setPower(right);
+            goat.leftFront.setPower(leftFrontPower);
+            goat.leftRear.setPower(leftRearPower);
+            goat.rightFront.setPower(rightFrontPower);
+            goat.rightRear.setPower(rightRearPower);
 
 
             // Use gamepad for Duck Spinner
@@ -115,10 +122,10 @@ public class GoodBotTeleOp extends LinearOpMode {
 
             // Send telemetry message to signify robot running;
 
-            telemetry.addData("leftFront",  "%.2f", left);
-            telemetry.addData("leftRear",  "%.2f", left);
-            telemetry.addData("rightFront", "%.2f", -right);
-            telemetry.addData("rightRear", "%.2f", -right);
+            telemetry.addData("leftFront",  "%.2f", leftFrontPower);
+            telemetry.addData("leftRear",  "%.2f", leftRearPower);
+            telemetry.addData("rightFront", "%.2f", rightFrontPower);
+            telemetry.addData("rightRear", "%.2f", rightRearPower);
             telemetry.addData("Duck Spinner", "%.2f", duckspinnerPower);
             telemetry.update();
 
