@@ -69,6 +69,8 @@ public class GoodBotTeleOp extends LinearOpMode {
         double strafe;
         double max;
         double duckspinnerPower;
+        double primaryServoPower;
+        double secondaryServoPower;
 
         /* Initialize the hardware variables.
          * The init() method of the hardware class does all the work here
@@ -117,16 +119,23 @@ public class GoodBotTeleOp extends LinearOpMode {
             // Use gamepad for Duck Spinner
             duckspinnerPower = -gamepad2.left_stick_y;
             goat.duckSpinner.setPower(duckspinnerPower);
+            
+            //Use gamepad for the robot arm
+            primaryServoPower = gamepad2.right_stick_y;
+            secondaryServoPower = gamepad2.right_stick_x;
+            goat.primaryServo.setPower(primaryServoPower);
+            goat.secondaryServo.setPower(secondaryServoPower);
 
 
 
             // Send telemetry message to signify robot running;
-
             telemetry.addData("leftFront",  "%.2f", leftFrontPower);
             telemetry.addData("leftRear",  "%.2f", leftRearPower);
             telemetry.addData("rightFront", "%.2f", rightFrontPower);
             telemetry.addData("rightRear", "%.2f", rightRearPower);
             telemetry.addData("Duck Spinner", "%.2f", duckspinnerPower);
+            telemetry.addData("primaryServo", "%.2f", primaryServoPower);
+            telemetry.addData("secondaryServo", "%.2f", secondaryServoPower);
             telemetry.update();
 
             // Pace this loop so jaw action is reasonable speed.
