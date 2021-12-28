@@ -59,11 +59,8 @@ public class GoodBotHardwareMap
     public DcMotor  rightFront  = null;
     public DcMotor  rightRear    = null;
     public DcMotor  duckSpinner   = null;
-    public Servo mainArm1  = null;
-    public Servo mainArm2  = null;
-    public Servo slidingArm1  = null;
-    public Servo slidingArm2  = null;
-    public Servo dumpBucket  = null;
+    public Servo primaryServo  = null;
+    public Servo secondaryServo  = null;
 
 
     /* local OpMode members. */
@@ -93,7 +90,7 @@ public class GoodBotHardwareMap
         dumpBucket  = hwMap.get(Servo.class, "dump_bucket");
 
 
-        //setting directions.
+        //Setting directions.
         leftFront.setDirection(DcMotor.Direction.REVERSE);
         leftRear.setDirection(DcMotor.Direction.REVERSE);
         rightFront.setDirection(DcMotor.Direction.FORWARD);
@@ -116,7 +113,12 @@ public class GoodBotHardwareMap
 
 
         // Define and initialize ALL installed servos.
-
+        primaryServo = hwMap.get(Servo.class, "primary_servo");
+        secondaryServo = hwMap.get(Servo.class, "secondary_servo");
+       
+        //Set all servo to the zero position
+        primaryServo.setPosition(0);
+        secondaryServo.setPosition(0);
     }
  }
 
