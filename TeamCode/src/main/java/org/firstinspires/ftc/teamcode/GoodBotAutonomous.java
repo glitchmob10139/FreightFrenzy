@@ -62,6 +62,9 @@ public class PushbotAutoDriveByEncoder_Linear extends LinearOpMode {
         encoderDrive(DRIVE_SPEED,  5,  5, 2.0);  // S1: Forward 5 Inches with 2 Sec timeout
         encoderDrive(TURN_SPEED,   12, -12, 2.0);  // S2: Turn Right 12 Inches with 2 Sec timeout
         encoderDrive(DRIVE_SPEED, -4, -4, 2.0);  // S3: Reverse 4 Inches with 2 Sec timeout
+        
+        goat.clawMover.setPosition(0.5); // Set the servo to the 0.5 position
+        sleep(1000);    // Pause for the servos to move
 
         telemetry.addData("Path", "Complete");
         telemetry.update();
@@ -142,7 +145,7 @@ public class PushbotAutoDriveByEncoder_Linear extends LinearOpMode {
             goat.leftRear.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             goat.rightRear.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
-            //  sleep(250);   // optional pause after each move
+            sleep(250);   // optional pause after each move
         }
     }
 }
