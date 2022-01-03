@@ -15,7 +15,7 @@ public class GoodBotHardwareMap
     public DcMotor  rightFront  = null;
     public DcMotor  rightRear    = null;
     public DcMotor  duckSpinner   = null;
-    public void Servo clawServo  = null;
+    public Servo clawGrip  = null;
 
 
     /* local OpMode members. */
@@ -63,9 +63,9 @@ public class GoodBotHardwareMap
 
 
         // Define and initialize ALL installed servos.
-        clawServo = hwMap.get(Servo.class, "claw_servo");
+        clawGrip = hwMap.get(Servo.class, "claw_grip");
 
         // Set all servo to the 0 position
-        clawServo.setPosition(0);
+        clawGrip.setPosition(0);
     }
  }
