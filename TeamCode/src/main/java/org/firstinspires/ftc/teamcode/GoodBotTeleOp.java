@@ -83,6 +83,14 @@ public class GoodBotTeleOp extends LinearOpMode {
                 goat.clawGrip.setPosition(1);
                 telemetry.addData("Claw Postion:","Closed");
             }
+            if (gamepad2.dpad_left){
+                goat.clawGrip2.setPosition(0);
+                telemetry.addData("Claw Position","Open");
+            }
+            if (gamepad2.dpad_right){
+                goat.clawGrip2.setPosition(1);
+                telemetry.addData("Claw Postion", "Close");
+            }
 
             // Send telemetry message to signify robot running;
 
