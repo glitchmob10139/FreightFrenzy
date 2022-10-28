@@ -14,7 +14,7 @@ public class GoodBotHardwareMap
     public DcMotor  leftRear  = null;
     public DcMotor  rightFront  = null;
     public DcMotor  rightRear    = null;
-    public DcMotor  duckSpinner   = null;
+//    public DcMotor  duckSpinner   = null;
     public Servo clawGrip  = null;
     public Servo clawGrip2 = null;
 
