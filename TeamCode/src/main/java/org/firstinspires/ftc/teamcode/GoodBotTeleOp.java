@@ -71,8 +71,8 @@ public class GoodBotTeleOp extends LinearOpMode {
 
 
             // Use gamepad for Duck Spinner
-            duckspinnerPower = -gamepad2.left_stick_y;
-            goat.duckSpinner.setPower(duckspinnerPower);
+//             duckspinnerPower = -gamepad2.left_stick_y;
+//             goat.duckSpinner.setPower(duckspinnerPower);
 
             // Use gamepad for the claw
 //             if (gamepad2.left_bumper){
