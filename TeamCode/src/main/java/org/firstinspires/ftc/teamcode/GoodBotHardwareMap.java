@@ -17,6 +17,8 @@ public class GoodBotHardwareMap
 //    public DcMotor  duckSpinner   = null;
 //    public Servo clawGrip  = null;
 //    public Servo clawGrip2 = null;
+    public DcMotor motor1  = null;
+    public DcMotor motor2  = null;
 
 
     /* local OpMode members. */
@@ -39,6 +41,8 @@ public class GoodBotHardwareMap
         rightFront    = hwMap.get(DcMotor.class, "right_front");
         rightRear   = hwMap.get(DcMotor.class, "right_rear");
 //        duckSpinner = hwMap.get(DcMotor.class, "duck_spinner");
+        motor1  = hwMap.get(DcMotor.class, "motor_1");
+        motor2  = hwMap.get(DcMotor.class, "motor_2");
 
 
         //setting directions.
@@ -46,6 +50,9 @@ public class GoodBotHardwareMap
         leftRear.setDirection(DcMotor.Direction.REVERSE);
         rightFront.setDirection(DcMotor.Direction.FORWARD);
         rightRear.setDirection(DcMotor.Direction.FORWARD);
+        
+        motor1.setDirection(DcMotor.Direction.REVERSE);
+        motor2.setDirection(DcMotor.DIrection.REVERSE);
 
         // Set all motors to zero power
         leftFront.setPower(0);
@@ -53,6 +60,9 @@ public class GoodBotHardwareMap
         rightFront.setPower(0);
         rightRear.setPower(0);
 //        duckSpinner.setPower(0);
+        
+        motor1.setPower(0);
+        motor2.setPower(0);
 
         // Set all motors to run without encoders.
         // May want to use RUN_USING_ENCODERS if encoders are installed.
@@ -61,7 +71,9 @@ public class GoodBotHardwareMap
         rightFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         rightRear.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 //        duckSpinner.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-
+        
+        motor1.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        motor2.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         // Define and initialize ALL installed servos.
 //        clawGrip = hwMap.get(Servo.class, "claw_grip");
